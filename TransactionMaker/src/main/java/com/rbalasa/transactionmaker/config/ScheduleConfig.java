@@ -1,4 +1,4 @@
-package com.rbalasa.accountancyapp.config;
+package com.rbalasa.transactionmaker.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +20,6 @@ public class ScheduleConfig implements SchedulingConfigurer {
 
     @Bean(destroyMethod="shutdown")
     public Executor taskExecutor() {
-        return Executors.newScheduledThreadPool(10);
+        return Executors.newScheduledThreadPool(100);
     }
 }
