@@ -13,18 +13,29 @@ services:
 
   accountancy:
     image: accountancy
+    container_name: accountancy-app
     build:
       context: ./AccountancyApp
       dockerfile: Dockerfile
     depends_on:
       - db
     environment:
-      - JAVA_OPTS=-Xms128m -Xms300m
-      - DB_PORT=3336
-      - DB_SERVER=localhost
-      - DB_USER=root
-      - DB_PASSWORD=password
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db2:3306/accountancy?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
     ports:
       - "8080:8080"
+    restart: always
+  
+  transaction-maker:
+    image: transaction-maker
+    container_name: transaction-maker
+    build:
+      context: ./TransactionMaker
+      dockerfile: Dockerfile
+    depends_on:
+      - accountancy
+    ports:
+      - "8090:8090"
     restart: always
 
