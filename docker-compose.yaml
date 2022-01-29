@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+ 
+  db:
+    image: mysql:latest
+    container_name: mysql-db2
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306"
+    restart: always
+
+  accountancy:
+    image: accountancy
+    build:
+      context: ./AccountancyApp
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      - JAVA_OPTS=-Xms128m -Xms300m
+      - DB_PORT=3336
+      - DB_SERVER=localhost
+      - DB_USER=root
+      - DB_PASSWORD=password
+    ports:
+      - "8080:8080"
+    restart: always
+
