@@ -50,7 +50,7 @@ public class ReportGenerator {
         Double totalExpenses = 0.0;
         Double totalIncome = 0.0;
 
-        String documentName = "Raport_" + user.getName() + "_" + dateLastRun + "_" + dateNow + ".pdf";
+        String documentName = "./Results/Raport_" + user.getName() + "_" + dateLastRun + "_" + dateNow + ".pdf";
         try
         {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(documentName));

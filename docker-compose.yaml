@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 
 services:
  
@@ -30,6 +30,8 @@ services:
     build:
       context: ./AccountancyApp
       dockerfile: Dockerfile
+    volumes:
+      - /Users/razone/Desktop/ETTI/Master/AN2/SEM1/SPD/results:/Results
     depends_on:
       - db
     environment:
