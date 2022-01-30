@@ -3,6 +3,7 @@ package com.rbalasa.transactionmaker.concurrent;
 import com.rbalasa.transactionmaker.model.Account;
 import com.rbalasa.transactionmaker.model.Transaction;
 import com.rbalasa.transactionmaker.model.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,19 @@ import java.util.Random;
 
 public class TransactionRunnable implements Runnable{
 
+    private final String userSaveUri;
+    private final String accountSaveUri;
+    private final String transactionSaveUri;
+
     private final RestOperations restOperations;
     private final Integer ACCOUNTS_NO = 3;
     private final Integer TRANSACTION_NO = 60;
     private Random random = new Random();
 
-    public TransactionRunnable(RestOperations restOperations) {
+    public TransactionRunnable(String userSaveUri, String accountSaveUri, String transactionSaveUri, RestOperations restOperations) {
+        this.userSaveUri = userSaveUri;
+        this.accountSaveUri = accountSaveUri;
+        this.transactionSaveUri = transactionSaveUri;
         this.restOperations = restOperations;
     }
 
@@ -39,7 +47,7 @@ public class TransactionRunnable implements Runnable{
         List<Account> accounts = new ArrayList<>();
 
         RequestEntity<User> requestEntity =
-                new RequestEntity<>(user, HttpMethod.POST, URI.create("http://localhost:8080/user/save"));
+                new RequestEntity<>(user, HttpMethod.POST, URI.create(userSaveUri));
         ResponseEntity<User> savedUser = restOperations.exchange(requestEntity, User.class);
         System.out.println(savedUser);
 
@@ -49,7 +57,7 @@ public class TransactionRunnable implements Runnable{
                     .user(savedUser.getBody())
                     .build();
             RequestEntity<Account> accountRequestEntity =
-                    new RequestEntity<>(account, HttpMethod.POST, URI.create("http://localhost:8080/account/save"));
+                    new RequestEntity<>(account, HttpMethod.POST, URI.create(accountSaveUri));
             ResponseEntity<Account> savedAccount = restOperations.exchange(accountRequestEntity, Account.class);
             System.out.println(savedAccount);
             accounts.add(savedAccount.getBody());
@@ -64,7 +72,7 @@ public class TransactionRunnable implements Runnable{
                     .userAccount(accounts.get(random.nextInt(ACCOUNTS_NO)))
                     .build();
             RequestEntity<Transaction> transactionRequestEntity =
-                    new RequestEntity<>(transaction, HttpMethod.POST, URI.create("http://localhost:8080/transaction/save"));
+                    new RequestEntity<>(transaction, HttpMethod.POST, URI.create(transactionSaveUri));
             System.out.println(restOperations.exchange(transactionRequestEntity, Transaction.class));
         }
     }

@@ -48,6 +48,10 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - accountancy
+    environment:
+      USER_SAVE_URI: http://accountancy-app:8080/user/save
+      ACCOUNT_SAVE_URI: http://accountancy-app:8080/account/save
+      TRANSACTION_SAVE_URI: http://accountancy-app:8080/transaction/save
     ports:
       - "8090:8090"
     restart: always
