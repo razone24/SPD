@@ -20,4 +20,4 @@ docker-compose up -d --build
 - ACCOUNT_NO: number of accounts per user
 - TRANSACTION_NO: number of transactons per user
 
-![alt text](https://github.com/razone24/SPD/blob/master/AccountancyApp.jpeg?raw=true)
+![alt text](https://github.com/razone24/SPD/blob/master/AccountancyApp.jpg)
