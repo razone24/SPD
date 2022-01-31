@@ -34,3 +34,5 @@ build/
 
 ### Reports ###
 *.pdf
+
+.DS_Store
