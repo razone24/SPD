@@ -54,6 +54,9 @@ services:
       USER_SAVE_URI: http://accountancy-app:8080/user/save
       ACCOUNT_SAVE_URI: http://accountancy-app:8080/account/save
       TRANSACTION_SAVE_URI: http://accountancy-app:8080/transaction/save
+      POOL_SIZE: 3
+      ACCOUNT_NO: 3
+      TRANSACTION_NO: 60
     ports:
       - "8090:8090"
     restart: always

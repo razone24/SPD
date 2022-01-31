@@ -24,12 +24,23 @@ public class TransactionGenerator {
     @Value("${transaction.save.uri}")
     private String transactionSaveUri;
 
-    public static final int POOL_SIZE = 3;
+    @Value("${pool.size}")
+    private int poolSize;
+
+    @Value("${account.no}")
+    private int accountsNo;
+
+    @Value("${transaction.no}")
+    private int transactionNo;
+
     private final RestOperations restOperations;
 
     @Scheduled(cron = "0/60 * * * * ?")
     public void compute() {
-        final ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(POOL_SIZE);
-        executor.schedule(new TransactionRunnable(userSaveUri, accountSaveUri, transactionSaveUri, restOperations), 1, TimeUnit.MINUTES);
+        System.out.println(poolSize);
+        System.out.println(accountsNo);
+        System.out.println(transactionNo);
+        final ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(poolSize);
+        executor.schedule(new TransactionRunnable(userSaveUri, accountSaveUri, transactionSaveUri, restOperations, accountsNo, transactionNo), 1, TimeUnit.MINUTES);
     }
 }
