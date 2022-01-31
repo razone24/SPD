@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-01-31T19:54:37.836Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" etag="bXzw7F6sJWAbcOoDs_h7" version="16.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-01-31T19:58:42.201Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" etag="Wpd41aI1Uz5WW-9UV32t" version="16.5.2" type="github">
   <diagram id="ueZrGG5sA9889QBTN8Mw" name="Page-1">
-    <mxGraphModel dx="1207" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="855" dy="373" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -88,6 +88,15 @@
         </mxCell>
         <mxCell id="po_6nuUeIaMUueavmUFP-34" value="x POOL_SIZE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="384" y="370" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="po_6nuUeIaMUueavmUFP-35" value="x Schedule pool size" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="500" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="po_6nuUeIaMUueavmUFP-37" value="" style="aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image;image=img/lib/active_directory/secure.svg;fillColor=#3399FF;" vertex="1" parent="1">
+          <mxGeometry x="398" y="290" width="32" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="po_6nuUeIaMUueavmUFP-38" value="URL + USER + PASSWORD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="384" y="255" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
