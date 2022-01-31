@@ -1,4 +1,4 @@
-# SPd
+# SPD Accountancy Application
 
 ### Run project
 
